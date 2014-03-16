@@ -1,11 +1,11 @@
 Summary:	Kernel auditing
 Name:		audit
-Version:	2.3.3
+Version:	2.3.4
 Release:	1
 License:	GPL v2+
 Group:		Daemons
 Source0:	http://people.redhat.com/sgrubb/audit/%{name}-%{version}.tar.gz
-# Source0-md5:	e56eee88a246820fb6b603bc312e2e71
+# Source0-md5:	ababfa3a192d6acba8806c9dcb16a6c8
 URL:		http://people.redhat.com/sgrubb/audit/
 BuildRequires:	autoconf
 BuildRequires:	automake
