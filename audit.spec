@@ -1,11 +1,11 @@
 Summary:	Kernel auditing
 Name:		audit
-Version:	2.3.5
+Version:	2.3.6
 Release:	1
 License:	GPL v2+
 Group:		Daemons
 Source0:	http://people.redhat.com/sgrubb/audit/%{name}-%{version}.tar.gz
-# Source0-md5:	755ac2dbe766cc74aa6c7bd54be61b9f
+# Source0-md5:	ffe178196717f8d3fc5337559543f58a
 URL:		http://people.redhat.com/sgrubb/audit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -43,8 +43,8 @@ developing applications that need to use the audit framework library.
 %prep
 %setup -q
 
-sed 's#swig/Makefile ##' -i configure.ac
-sed 's/swig//' -i Makefile.am
+%{__sed} 's#swig/Makefile ##' -i configure.ac
+%{__sed} 's/swig//' -i Makefile.am
 
 %build
 %{__libtoolize}
