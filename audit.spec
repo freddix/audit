@@ -1,11 +1,11 @@
-Summary:	Kernel auditing
+Summary:	User space tools for Linux kernel auditing
 Name:		audit
-Version:	2.3.6
+Version:	2.3.7
 Release:	1
 License:	GPL v2+
 Group:		Daemons
 Source0:	http://people.redhat.com/sgrubb/audit/%{name}-%{version}.tar.gz
-# Source0-md5:	ffe178196717f8d3fc5337559543f58a
+# Source0-md5:	42813b6c202f5922ac904c059ac17ee6
 URL:		http://people.redhat.com/sgrubb/audit/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -18,13 +18,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The audit package contains the user space utilities for storing and
-processing the audit records generate by the audit subsystem in the
-Linux 2.6 kernel.
+searching the audit records generate by the audit subsystem in the
+Linux kernel.
 
 %package libs
 Summary:	Dynamic audit libraries
 License:	LGPL v2.1+
-Group:		Libraries
+Group:		Core/Libraries
 
 %description libs
 The audit-libs package contains the dynamic libraries needed for
@@ -43,8 +43,9 @@ developing applications that need to use the audit framework library.
 %prep
 %setup -q
 
-%{__sed} 's#swig/Makefile ##' -i configure.ac
-%{__sed} 's/swig//' -i Makefile.am
+# disable swig support
+%{__sed} -i 's|swig/Makefile ||' configure.ac
+%{__sed} -i 's|swig||' Makefile.am
 
 %build
 %{__libtoolize}
