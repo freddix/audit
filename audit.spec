@@ -1,16 +1,17 @@
 Summary:	User space tools for Linux kernel auditing
 Name:		audit
-Version:	2.3.7
+Version:	2.4
 Release:	1
 License:	GPL v2+
 Group:		Daemons
 Source0:	http://people.redhat.com/sgrubb/audit/%{name}-%{version}.tar.gz
-# Source0-md5:	42813b6c202f5922ac904c059ac17ee6
+# Source0-md5:	7d35d9db17c2c5e155bc1fe42b55ec48
 URL:		http://people.redhat.com/sgrubb/audit/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libcap-ng-devel
 BuildRequires:	libtool
+BuildRequires:	openldap-devel
 Requires(post,preun,postun):	systemd-units
 Requires:	%{name}-libs = %{version}-%{release}
 Requires:	systemd
@@ -71,6 +72,10 @@ install -d $RPM_BUILD_ROOT{%{_var}/log/audit,%{systemdunitdir}} \
 
 %{__make} -C auparse install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+%{__rm} -r $RPM_BUILD_ROOT%{_libdir}/initscripts
 
 install lib/libaudit.h $RPM_BUILD_ROOT%{_includedir}
 
@@ -142,7 +147,7 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/*.so
-%{_libdir}/*.la
 %{_includedir}/*.h
+%{_pkgconfigdir}/audit.pc
 %{_mandir}/man3/*.3*
 
