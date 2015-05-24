@@ -1,11 +1,11 @@
 Summary:	User space tools for Linux kernel auditing
 Name:		audit
-Version:	2.4.1
+Version:	2.4.2
 Release:	1
 License:	GPL v2+
 Group:		Daemons
 Source0:	http://people.redhat.com/sgrubb/audit/%{name}-%{version}.tar.gz
-# Source0-md5:	03a73041e2de853148b2bca67a1d9138
+# Source0-md5:	52e535e449f6fb80a4491267e35f1cec
 URL:		http://people.redhat.com/sgrubb/audit/
 BuildRequires:	autoconf
 BuildRequires:	automake
